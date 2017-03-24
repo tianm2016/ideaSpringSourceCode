@@ -1,0 +1,43 @@
+group 'org.spring-framework'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile(project(":spring-beans"))
+    compile(project(":spring-context"))
+    compile(project(":spring-core"))
+    compile(project(":spring-web"))
+    compile(project(":spring-webmvc"))
+    provided("javax.servlet:javax.servlet-api:3.0.1")
+    optional(project(":spring-context-support"))  // for Velocity support
+    optional(project(":spring-oxm"))  // for MarshallingView
+    optional("javax.servlet.jsp:jsp-api:2.1")
+    optional("javax.servlet:jstl:1.2")
+    optional("net.sourceforge.jexcelapi:jxl:2.6.12")
+    optional("org.apache.poi:poi:3.6")
+    optional("velocity:velocity:1.5")
+    optional("velocity-tools:velocity-tools-view:1.4")
+    optional("org.freemarker:freemarker:2.3.20")
+    optional("com.lowagie:itext:2.1.7")
+    optional("net.sf.jasperreports:jasperreports:3.7.6") {
+        exclude group: "xml-apis", module: "xml-apis"
+    }
+    optional("org.codehaus.jackson:jackson-mapper-asl:1.7.9")
+    optional("com.fasterxml.jackson.core:jackson-databind:2.0.6")
+    optional("rome:rome:1.0")
+    optional("org.apache.tiles:tiles-api:2.1.2")
+    optional("org.apache.tiles:tiles-core:2.1.2")
+    optional("org.apache.tiles:tiles-jsp:2.1.2")
+    optional("org.apache.tiles:tiles-servlet:2.1.2")
+
+}
+
